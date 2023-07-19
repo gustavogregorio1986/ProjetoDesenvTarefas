@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<TarefaModel>
+@{
     ViewData["Title"] = "Listagem das tarefas";
 }
 
@@ -6,57 +7,45 @@
         <a class="btn btn-primary text-left" role="button" asp-controller="Tarefa" asp-action="Criar">Adicionar a nova Tarefa</a>
     </div>
     <br/>
+<div class="text-center">
 
-<h1 class="display-4">Listagem de tarefas prontas</h1>
+    <h1 class="display-4">Listagem de tarefas prontas</h1>
+
+</div>
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Primeiro</th>
-      <th scope="col">Último</th>
-      <th scope="col">Nickname</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Data Inicio</th>
+      <th scope="col">Data Fim</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>mdo</td>
-      <td>
-          <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
-      </td>
-      <td>
-          <a role="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao" class="btn btn-danger">Apagar</a>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>fat</td>
-      <td>
-          <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
-      </td>
-      <td>
-          <button type="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao"  class="btn btn-danger">Apagar</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>twitter</td>
-      <td>
-          <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
-      </td>
-      <td>
-          <button type="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao"  class="btn btn-danger">Apagar</button>
-      </td>
-    </tr>
+    
+     @if(Model != null && Model.Any())
+     {
+          foreach (TarefaModel tarefa in Model)
+          {
+              <tr>
+                <td scope="row">@tarefa.Id</td>
+                <td>@tarefa.Titulo</td>
+                <td>@tarefa.Descricao</td>
+                <td>@tarefa.DataInicio</td>
+                <td>@tarefa.DataFim</td>
+                <td>
+                   <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
+                </td>
+                <td>
+                  <a role="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao" class="btn btn-danger">Apagar</a>
+                </td>
+              </tr>
+          }
+     } 
   </tbody>
 </table>
 

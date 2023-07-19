@@ -1,6 +1,7 @@
 ﻿using Desenvolvimentotarefas.Models;
 using Desenvolvimentotarefas.Repositorios.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Desenvolvimentotarefas.Controllers
 {
@@ -15,7 +16,8 @@ namespace Desenvolvimentotarefas.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<TarefaModel> listaTarefas = _tarefaRepositorio.BuscarPorTodos();
+            return View(listaTarefas);
         }
 
         public IActionResult Criar()
