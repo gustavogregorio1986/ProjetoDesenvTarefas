@@ -51,6 +51,7 @@ namespace Desenvolvimentotarefas.Controllers
 
         public IActionResult Alterar(TarefaModel tarefa)
         {
+            _tarefaRepositorio.Atualizar(tarefa);
             return RedirectToAction("Index");
         }
 

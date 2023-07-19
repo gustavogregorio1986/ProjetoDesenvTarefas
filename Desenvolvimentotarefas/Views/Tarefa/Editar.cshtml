@@ -12,6 +12,9 @@
 
 <form asp-controller="Tarefa" asp-action="Alterar" method="post">
   <div class="form-group">
+
+    <input type="hidden" asp-for="Id" />
+
     <label for="titulo">Titulo</label>
     <input type="text" asp-for="Titulo" class="form-control" placeholder="Digite o titulo">
   </div>
