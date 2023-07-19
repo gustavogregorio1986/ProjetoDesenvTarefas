@@ -1,4 +1,6 @@
 using Desenvolvimentotarefas.Data;
+using Desenvolvimentotarefas.Repositorios;
+using Desenvolvimentotarefas.Repositorios.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,7 @@ namespace Desenvolvimentotarefas
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<BancoContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+            services.AddScoped<ITarefaRepositorio, TarefaRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
