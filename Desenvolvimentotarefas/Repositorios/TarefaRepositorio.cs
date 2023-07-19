@@ -31,5 +31,23 @@ namespace Desenvolvimentotarefas.Repositorios
         {
             return _context.Tarefas.ToList();
         }
+
+        public TarefaModel Atualizar(TarefaModel tarefa)
+        {
+            TarefaModel tarefaDB = ListaPorId(tarefa.Id);
+
+            if (tarefaDB == null) throw new System.Exception("Houve um erro na atualização do contato");
+
+            tarefaDB.Titulo = tarefa.Titulo;
+            tarefaDB.Descricao = tarefa.Descricao;
+            tarefaDB.DataInicio = tarefa.DataInicio;
+            tarefaDB.DataFim = tarefa.DataFim;
+
+            _context.Tarefas.Update(tarefaDB);
+            _context.SaveChanges();
+
+            return tarefa;
+       
+        }
     }
 }

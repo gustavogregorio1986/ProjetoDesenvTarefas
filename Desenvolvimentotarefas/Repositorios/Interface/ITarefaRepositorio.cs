@@ -10,5 +10,7 @@ namespace Desenvolvimentotarefas.Repositorios.Interface
         TarefaModel Adicionar(TarefaModel tarefa);
 
         List<TarefaModel> BuscarPorTodos();
+
+        TarefaModel Atualizar(TarefaModel tarefa);
     }
 }
