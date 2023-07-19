@@ -28,13 +28,22 @@ namespace Desenvolvimentotarefas.Controllers
         [HttpPost]
         public IActionResult Criar(TarefaModel tarefa)
         {
-            if(ModelState.IsValid)
+            try
             {
-                _tarefaRepositorio.Adicionar(tarefa);
+                if (ModelState.IsValid)
+                {
+                    _tarefaRepositorio.Adicionar(tarefa);
+                    TempData["MensagemSucesso"] = "Tarefa Cadastrado com sucesso";
+                    return RedirectToAction("Index");
+                }
+
+                return View(tarefa);
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Tarefa Cadastrado com sucesso";
                 return RedirectToAction("Index");
             }
-
-            return View(tarefa);
         }
 
         public IActionResult Editar(int id)
@@ -51,8 +60,20 @@ namespace Desenvolvimentotarefas.Controllers
 
         public IActionResult Alterar(TarefaModel tarefa)
         {
-            _tarefaRepositorio.Atualizar(tarefa);
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _tarefaRepositorio.Atualizar(tarefa);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (System.Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar seu tarefa, tente novamente, detalhe do erro: {erro.Message}";
+            }
+
+            return View("Editar", tarefa);
         }
 
         public IActionResult Apagar(int id)
