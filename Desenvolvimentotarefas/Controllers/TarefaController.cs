@@ -37,14 +37,21 @@ namespace Desenvolvimentotarefas.Controllers
             return View(tarefa);
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            TarefaModel tarefa = _tarefaRepositorio.ListaPorId(id);
+            return View(tarefa);
         }
 
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            TarefaModel tarefa = _tarefaRepositorio.ListaPorId(id);
+            return View(tarefa);
+        }
+
+        public IActionResult Alterar(TarefaModel tarefa)
+        {
+            return RedirectToAction("Index");
         }
 
         public IActionResult Apagar()

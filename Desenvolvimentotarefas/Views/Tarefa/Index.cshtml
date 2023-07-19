@@ -38,10 +38,10 @@
                 <td>@tarefa.DataInicio</td>
                 <td>@tarefa.DataFim</td>
                 <td>
-                   <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
+                   <a role="button" asp-controller="Tarefa" asp-route-id="@tarefa.Id" asp-action="Editar" class="btn btn-primary">Editar</a>
                 </td>
                 <td>
-                  <a role="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao" class="btn btn-danger">Apagar</a>
+                  <a role="button" asp-controller="Tarefa" asp-route-id="@tarefa.Id" asp-action="ApagarConfirmacao" class="btn btn-danger">Apagar</a>
                 </td>
               </tr>
           }

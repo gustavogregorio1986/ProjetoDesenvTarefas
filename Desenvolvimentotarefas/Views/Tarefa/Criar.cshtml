@@ -28,7 +28,7 @@
         <span class="glyphicon glyphicon-th"></span>
      </div>
   </div>
-  @Html.ValidationMessageFor(x => x.DataInicio)
+  @Html.ValidationMessageFor(x => x.DataInicio, null, new { @class = "validation-error" })
   <div class="form-group input-group date" data-date-format="dd/mm/yyyy">
     <label for="dataFim">Data Fim</label>
     <input  type="text" asp-for="DataFim" class="form-control" placeholder="dd/mm/yyyy">

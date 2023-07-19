@@ -15,6 +15,11 @@ namespace Desenvolvimentotarefas.Repositorios
             _context = bancoContext;
         }
 
+        public TarefaModel ListaPorId(int id)
+        {
+            return _context.Tarefas.FirstOrDefault(x => x.Id == id);
+        }
+
         public TarefaModel Adicionar(TarefaModel tarefa)
         {
             _context.Tarefas.Add(tarefa);
