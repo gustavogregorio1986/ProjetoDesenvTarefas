@@ -26,11 +26,13 @@ namespace Desenvolvimentotarefas.Controllers
         [HttpPost]
         public IActionResult Criar(TarefaModel tarefa)
         {
-           if(tarefa.DataInicio < tarefa.DataFim)
-           {
+            if(ModelState.IsValid)
+            {
                 _tarefaRepositorio.Adicionar(tarefa);
                 return RedirectToAction("Index");
-           }
+            }
+
+            return View(tarefa);
         }
 
         public IActionResult Editar()
