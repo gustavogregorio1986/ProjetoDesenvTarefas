@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Listagem das tarefas";
+}
+
+<div class="d-grid-gep-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary text-left" role="button" asp-controller="Tarefa" asp-action="Criar">Adicionar a nova Tarefa</a>
+    </div>
+    <br/>
+
+<h1 class="display-4">Listagem de tarefas prontas</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Primeiro</th>
+      <th scope="col">Último</th>
+      <th scope="col">Nickname</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>mdo</td>
+      <td>
+          <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
+      </td>
+      <td>
+          <a role="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao" class="btn btn-danger">Apagar</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>fat</td>
+      <td>
+          <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
+      </td>
+      <td>
+          <button type="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao"  class="btn btn-danger">Apagar</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>twitter</td>
+      <td>
+          <a role="button" asp-controller="Tarefa" asp-action="Editar" class="btn btn-primary">Editar</a>
+      </td>
+      <td>
+          <button type="button" asp-controller="Tarefa" asp-action="ApagarConfirmacao"  class="btn btn-danger">Apagar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
