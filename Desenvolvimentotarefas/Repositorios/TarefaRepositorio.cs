@@ -49,5 +49,18 @@ namespace Desenvolvimentotarefas.Repositorios
             return tarefa;
        
         }
+
+        public bool Apagar(int id)
+        {
+            TarefaModel tarefaDB = ListaPorId(id);
+            if (tarefaDB == null) throw new System.Exception("Houve um ero na deleção do contato");
+
+            _context.Tarefas.Remove(tarefaDB);
+            _context.SaveChanges();
+
+            return true;
+
+
+        }
     }
 }

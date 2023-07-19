@@ -12,5 +12,7 @@ namespace Desenvolvimentotarefas.Repositorios.Interface
         List<TarefaModel> BuscarPorTodos();
 
         TarefaModel Atualizar(TarefaModel tarefa);
+
+        bool Apagar(int id);
     }
 }

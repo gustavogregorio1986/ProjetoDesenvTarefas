@@ -55,9 +55,10 @@ namespace Desenvolvimentotarefas.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Apagar()
+        public IActionResult Apagar(int id)
         {
-            return View();
+            bool apagado = _tarefaRepositorio.Apagar(id);
+            return RedirectToAction("Index");
         }
     }
 }
