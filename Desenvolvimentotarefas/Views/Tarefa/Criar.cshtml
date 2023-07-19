@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TarefaModel
+@{
     ViewData["Title"] = "Adicionar tarefa";
 }
 
@@ -9,25 +10,25 @@
 
 </div>
 
-<form>
+<form asp-controller="Tarefa" asp-action="Criar" method="post">
   <div class="form-group">
     <label for="titulo">Titulo</label>
-    <input type="email" class="form-control" placeholder="Digite o titulo">
+    <input type="text" asp-for="Titulo" class="form-control" placeholder="Digite o titulo">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Descrição</label>
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control" asp-for="Descricao" rows="3"></textarea>
   </div>
   <div class="form-group input-group date" data-date-format="dd/mm/yyyy">
     <label for="dataInicio">Data Inicio</label>
-     <input  type="text" class="form-control" placeholder="dd/mm/yyyy">
+     <input  type="text" asp-for="DataInicio" class="form-control" placeholder="dd/mm/yyyy">
      <div class="input-group-addon" >
         <span class="glyphicon glyphicon-th"></span>
      </div>
   </div>
   <div class="form-group input-group date" data-date-format="dd/mm/yyyy">
     <label for="dataFim">Data Fim</label>
-    <input  type="text" class="form-control" placeholder="dd/mm/yyyy">
+    <input  type="text" asp-for="DataFim" class="form-control" placeholder="dd/mm/yyyy">
     <div class="input-group-addon" >
        <span class="glyphicon glyphicon-th"></span>
     </div>
